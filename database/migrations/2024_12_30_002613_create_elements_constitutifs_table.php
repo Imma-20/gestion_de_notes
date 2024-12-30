@@ -11,8 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('notes', function (Blueprint $table) {
+        Schema::create('elements_constitutifs', function (Blueprint $table) {
             $table->id();
+            $table->string('code',6);
+            $table->string('nom');
+            $table->decimal('coefficient',3,2);
+            $table->foreignId('ue_id')
+                  ->constrained('unites_enseignement') 
+                  ->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -22,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('notes');
+        Schema::dropIfExists('elements_constitutifs');
     }
 };
