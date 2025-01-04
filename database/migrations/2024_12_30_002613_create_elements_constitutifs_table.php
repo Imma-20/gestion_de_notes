@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('elements_constitutifs', function (Blueprint $table) {
             $table->id();
-            $table->string('code',6);
+            $table->string('code', 6);
             $table->string('nom');
-            $table->decimal('coefficient',3,2);
-            $table->foreignId('ue_id')
-                  ->constrained('unites_enseignement') 
-                  ->onDelete('cascade');
+            $table->integer('coefficient');
+            $table->unsignedBigInteger('ue_id');
+            $table->foreign('ue_id')->references('id')->on('unites_enseignement')->onDelete('cascade');
             $table->timestamps();
         });
+        
     }
 
     /**
