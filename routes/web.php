@@ -8,7 +8,17 @@ Route::get('/', function () {
 
     return view('welcome');
 });
+Route::get('/', function () {
+    return view('acceuil');
+    
+    // Fichier "home.blade.php"
+});
+Route::get('/welcome', function () {
+    return view('welcome'); // Fichier "autrePage.blade.php"
+});
+
 Route::resource('unites-enseignement', UnitesEnseignementController::class)->names([
+    'acceuil' => 'unites-enseignement.acceuil',
     'index' => 'unites-enseignement.index',
     'create' => 'unites-enseignement.create',
     'store' => 'unites-enseignement.store',
