@@ -1,20 +1,13 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NoteController;
 use App\Http\Controllers\UnitesEnseignementController;
 use App\Http\Controllers\ElementsConstitutifsController;
 
 Route::get('/', function () {
-
     return view('welcome');
-});
-Route::get('/', function () {
-    return view('acceuil');
-    
-    // Fichier "home.blade.php"
-});
-Route::get('/welcome', function () {
-    return view('welcome'); // Fichier "autrePage.blade.php"
 });
 
 Route::resource('unites-enseignement', UnitesEnseignementController::class)->names([
@@ -30,3 +23,5 @@ Route::resource('unites-enseignement', UnitesEnseignementController::class)->nam
 // Route::resource('/unites-enseignement',UnitesEnseignementController::class)->names('unites-enseignement');
 Route::resource('elements-constitutifs', ElementsConstitutifsController::class)->names('elements-constitutifs');
 // Route::delete('/unites-enseignement/{id}', [UnitesEnseignementController::class, 'destroy'])->name('unites-enseignement.delete');
+
+require __DIR__.'/auth.php';
