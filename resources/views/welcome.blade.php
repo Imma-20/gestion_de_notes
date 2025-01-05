@@ -22,6 +22,23 @@
             </div>
         </div>
 
+        <!-- Card for Notes -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
+            <div class="p-6">
+                <h3 class="text-xl font-semibold text-gray-800">Notes</h3>
+                <p class="text-gray-600 mt-2">Ajouter des notes</p>
+                <a href="{{ route('notes.create') }}" class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded-full hover:bg-blue-600 transition duration-300">Voir les notes</a>
+            </div>
+        </div>
+
+        <!-- Card for Add Note -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
+            <div class="p-6">
+                <h3 class="text-xl font-semibold text-gray-800">Ajouter une Note</h3>
+                <p class="text-gray-600 mt-2">Sélectionnez un étudiant, un EC, puis saisissez la note.</p>
+                <a href="{{ route('notes.create') }}" class="mt-4 inline-block bg-green-500 text-white py-2 px-4 rounded-full hover:bg-green-600 transition duration-300">Ajouter une note</a>
+            </div>
+        </div>
     </div>
 </div>
 @endsection
