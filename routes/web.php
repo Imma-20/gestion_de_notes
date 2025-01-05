@@ -10,21 +10,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-Route::get('notes/create', [NoteController::class, 'create'])->name('notes.create');
-
-Route::post('notes', [NoteController::class, 'store'])->name('notes.store');
-
 Route::resource('unites-enseignement', UnitesEnseignementController::class)->names([
+    'acceuil' => 'unites-enseignement.acceuil',
     'index' => 'unites-enseignement.index',
     'create' => 'unites-enseignement.create',
     'store' => 'unites-enseignement.store',
